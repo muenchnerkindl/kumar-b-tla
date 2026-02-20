@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase;org.eventb.instantiation.core.instantiationConfig">
+    <org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="finite(N)" org.eventb.core.source="/ASYN/ASYN0.buc|org.eventb.core.contextFile#ASYN0|org.eventb.core.axiom#_xaowQJykEfC4auS9iNkoHT" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name="(" org.eventb.core.label="axm2" org.eventb.core.predicate="nn0∈N → ℕ" org.eventb.core.source="/ASYN/ASYN0.buc|org.eventb.core.contextFile#ASYN0|org.eventb.core.axiom#_xaowQJykEfC4auS9iNkoHV" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name=")" org.eventb.core.label="axm3" org.eventb.core.predicate="∀n⦂N·n∈N⇒nn0(n)=0" org.eventb.core.source="/ASYN/ASYN0.buc|org.eventb.core.contextFile#ASYN0|org.eventb.core.axiom#_xaowQJykEfC4auS9iNkoHW" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name="*" org.eventb.core.label="axm4" org.eventb.core.predicate="nn0∼[{0}]=N" org.eventb.core.source="/ASYN/ASYN0.buc|org.eventb.core.contextFile#ASYN0|org.eventb.core.axiom#_xaowQJykEfC4auS9iNkoHX" org.eventb.core.theorem="true"/>
+    <org.eventb.core.scCarrierSet name="N" org.eventb.core.source="/ASYN/ASYN0.buc|org.eventb.core.contextFile#ASYN0|org.eventb.core.carrierSet#_Ws3tIJykEfC4auS9iNkoHQ" org.eventb.core.type="ℙ(N)"/>
+    <org.eventb.core.scConstant de.prob.symbolic.symbolicAttribute="false" name="nn0" org.eventb.core.source="/ASYN/ASYN0.buc|org.eventb.core.contextFile#ASYN0|org.eventb.core.constant#_xaowQJykEfC4auS9iNkoHU" org.eventb.core.type="ℙ(N×ℤ)"/>
+</org.eventb.core.scContextFile>
