@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.refinesMachine name="'" org.eventb.core.target="KumarDaemon"/>
+    <org.eventb.core.seesContext name="-" org.eventb.core.target="Node"/>
+    <org.eventb.core.variable name=")" org.eventb.core.identifier="ds"/>
+    <org.eventb.core.variable name="+" org.eventb.core.identifier="dr"/>
+    <org.eventb.core.variable name="?" org.eventb.core.identifier="visited"/>
+    <org.eventb.core.variable name="." org.eventb.core.identifier="active"/>
+    <org.eventb.core.variable name="/" org.eventb.core.identifier="sent"/>
+    <org.eventb.core.variable name="0" org.eventb.core.identifier="rcvd"/>
+    <org.eventb.core.variable name="1" org.eventb.core.identifier="termdetect"/>
+    <org.eventb.core.event name="2" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="consistent ≔ { ∅ }" org.eventb.core.label="act8"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="stale ≔ ∅" org.eventb.core.label="act9"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="3" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="terminate">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="terminate"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="stale ≔ {Q ∣ Q ⊆ visited ∧ ∃q· q ∈ Q ∧ (q ∈ active ∖ {n} ∨ ∃nn· nn ∈ Node ∧ (ds(q↦nn) ≠ sent(q↦nn) ∨ dr(nn↦q) ≠ rcvd(nn↦q)))}" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="4" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="send">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="send"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="stale ≔ {Q ∣ Q ⊆ visited ∧ ∃qq· qq ∈ Q ∧ (qq ∈ active ∨ ∃n· n ∈ Node ∧ (ds(qq↦n) ≠ nsent(qq↦n) ∨ dr(n↦qq) ≠ rcvd(n↦qq)))}" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="5" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="recv">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="recv"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="stale ≔ {Q ∣ Q ⊆ visited ∧ ∃qq· qq ∈ Q ∧ (qq ∈ active ∪ {q} ∨ ∃n· n ∈ Node ∧ (ds(qq↦n) ≠ sent(qq↦n) ∨ dr(n↦qq) ≠ nrcvd(n↦qq)))}" org.eventb.core.label="act3"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="6" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="detect">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="detect"/>
+        <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="visited = Node"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="ds = dr"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="termdetect ≔ TRUE " org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="7" org.eventb.core.convergence="1" org.eventb.core.extended="true" org.eventb.core.label="record">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="record"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="consistent ≔ {Q ∣ Q ⊆ nvisited ∧ (Q × Q) ◁ nds = (Q × Q) ◁ ndr}" org.eventb.core.label="act4"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="stale ≔ {Q ∣ Q ⊆ nvisited ∧ ∃q· q ∈ Q ∧ (q ∈ active ∨ ∃nn· nn ∈ Node ∧ (nds(q↦nn) ≠ sent(q↦nn) ∨ ndr(nn↦q) ≠ rcvd(nn↦q)))}" org.eventb.core.label="act5"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="8" org.eventb.core.identifier="consistent"/>
+    <org.eventb.core.variable name="9" org.eventb.core.identifier="stale"/>
+    <org.eventb.core.invariant name=":" org.eventb.core.label="inv1" org.eventb.core.predicate="consistent ⊆ ℙ(Node)"/>
+    <org.eventb.core.invariant name=";" org.eventb.core.label="inv2" org.eventb.core.predicate="stale ⊆ ℙ(Node)"/>
+    <org.eventb.core.invariant name="=" org.eventb.core.label="inv3" org.eventb.core.predicate="consistent = {Q ∣ Q ⊆ visited ∧ (Q × Q) ◁ ds = (Q × Q) ◁ dr}"/>
+    <org.eventb.core.invariant name="&gt;" org.eventb.core.label="inv4" org.eventb.core.predicate="stale = {Q ∣ Q ⊆ visited ∧ ∃q· q ∈ Q ∧ (q ∈ active ∨ ∃n· n ∈ Node ∧ (ds(q↦n) ≠ sent(q↦n) ∨ dr(n↦q) ≠ rcvd(n↦q)))}"/>
+    <org.eventb.core.invariant name="@" org.eventb.core.label="inv5" org.eventb.core.predicate="∀Q· Q ∈ consistent ∩ stale ⇒ (∃q,n· q ∈ Q ∧ n ∈ Node ∖ Q ∧ dr(n↦q) ≠ rcvd(n↦q))"/>
+    <org.eventb.core.invariant name="A" org.eventb.core.label="inv6" org.eventb.core.predicate="ds = dr ∧ visited = Node ⇒ active = ∅ ∧ sent = rcvd" org.eventb.core.theorem="true"/>
+</org.eventb.core.machineFile>

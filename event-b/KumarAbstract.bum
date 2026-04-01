@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="active :∈ ℙ(Node)" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="sent ≔ (Node × Node) × {0}" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="rcvd ≔ (Node × Node) × {0}" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="termdetect ≔ FALSE " org.eventb.core.label="act4"/>
+    </org.eventb.core.event>
+    <org.eventb.core.seesContext name="(" org.eventb.core.target="Node"/>
+    <org.eventb.core.variable name=")" org.eventb.core.identifier="active"/>
+    <org.eventb.core.invariant name="*" org.eventb.core.label="inv1" org.eventb.core.predicate="active ⊆ Node"/>
+    <org.eventb.core.variable name="+" org.eventb.core.identifier="sent"/>
+    <org.eventb.core.invariant name="," org.eventb.core.label="inv2" org.eventb.core.predicate="sent ∈ (Node × Node) → ℕ "/>
+    <org.eventb.core.variable name="-" org.eventb.core.identifier="rcvd"/>
+    <org.eventb.core.invariant name="." org.eventb.core.label="inv3" org.eventb.core.predicate="rcvd ∈ (Node × Node) → ℕ "/>
+    <org.eventb.core.event name="/" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="terminate">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="n"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="n ∈ active"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="active ≔ active ∖ {n}" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="0" org.eventb.core.identifier="termdetect"/>
+    <org.eventb.core.invariant name="1" org.eventb.core.label="inv4" org.eventb.core.predicate="termdetect ∈ BOOL "/>
+    <org.eventb.core.event name="2" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="send">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="p"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="q"/>
+        <org.eventb.core.parameter name=")" org.eventb.core.identifier="nsent"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd1" org.eventb.core.predicate="p ∈ active"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="q ∈ Node"/>
+        <org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="nsent = sent  {(p↦q) ↦ sent(p↦q)+1}"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="sent ≔ nsent" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="3" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="recv">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="p"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="q"/>
+        <org.eventb.core.parameter name=")" org.eventb.core.identifier="nrcvd"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd1" org.eventb.core.predicate="p ∈ Node ∧ q ∈ Node"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="sent(p↦q) &gt; rcvd(p↦q)"/>
+        <org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="nrcvd = rcvd  {(p↦q) ↦ rcvd(p↦q)+1}"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="active ≔ active ∪ {q}" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="rcvd ≔ nrcvd" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="4" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="detect">
+        <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="active = ∅"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="sent = rcvd"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="termdetect ≔ TRUE " org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.invariant name="5" org.eventb.core.label="inv5" org.eventb.core.predicate="∀p,q· p ∈ Node ∧ q ∈ Node ⇒ rcvd(p↦q) ≤ sent(p↦q)"/>
+    <org.eventb.core.invariant name="6" org.eventb.core.label="inv6" org.eventb.core.predicate="termdetect = TRUE ⇒ active = ∅ ∧ sent = rcvd"/>
+</org.eventb.core.machineFile>

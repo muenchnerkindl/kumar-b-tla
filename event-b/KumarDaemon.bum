@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="ds ≔ (Node × Node) × {0}" org.eventb.core.label="act5"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="dr ≔ (Node × Node) × {0}" org.eventb.core.label="act6"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="visited ≔ ∅" org.eventb.core.label="act7"/>
+    </org.eventb.core.event>
+    <org.eventb.core.refinesMachine name="(" org.eventb.core.target="KumarAbstract"/>
+    <org.eventb.core.variable name=")" org.eventb.core.identifier="ds"/>
+    <org.eventb.core.invariant name="*" org.eventb.core.label="inv1" org.eventb.core.predicate="ds ∈ (Node × Node) → ℕ "/>
+    <org.eventb.core.variable name="+" org.eventb.core.identifier="dr"/>
+    <org.eventb.core.invariant name="," org.eventb.core.label="inv2" org.eventb.core.predicate="dr ∈ (Node × Node) → ℕ "/>
+    <org.eventb.core.seesContext name="-" org.eventb.core.target="Node"/>
+    <org.eventb.core.variable name="evt8" org.eventb.core.identifier="visited"/>
+    <org.eventb.core.variable name="." org.eventb.core.identifier="active"/>
+    <org.eventb.core.variable name="/" org.eventb.core.identifier="sent"/>
+    <org.eventb.core.variable name="0" org.eventb.core.identifier="rcvd"/>
+    <org.eventb.core.variable name="1" org.eventb.core.identifier="termdetect"/>
+    <org.eventb.core.event name="evt1" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="terminate">
+        <org.eventb.core.refinesEvent name="," org.eventb.core.target="terminate"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="evt2" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="send">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="send"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="evt3" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="recv">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="recv"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="evt4" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="detect">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="detect"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="evt5" org.eventb.core.convergence="1" org.eventb.core.extended="false" org.eventb.core.label="record">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="n"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="nds"/>
+        <org.eventb.core.parameter name=")" org.eventb.core.identifier="ndr"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd1" org.eventb.core.predicate="n ∈ Node ∖ active"/>
+        <org.eventb.core.guard name="2" org.eventb.core.label="grd5" org.eventb.core.predicate="n ∉ visited ∨ (∃q· q ∈ Node ∧ (ds(n↦q) ≠ sent(n↦q) ∨ dr(q↦n) ≠ rcvd(q↦n)))"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="nds = ds  (λ(p↦q)· p = n ∧ q ∈ Node ∣ sent(p↦q))"/>
+        <org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="ndr = dr  (λ(p↦q)· p ∈ Node ∧ q = n ∣ rcvd(p↦q))"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="ds ≔ nds" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="dr ≔ ndr" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="/" org.eventb.core.assignment="visited ≔ nvisited" org.eventb.core.label="act3"/>
+        <org.eventb.core.parameter name="0" org.eventb.core.identifier="nvisited"/>
+        <org.eventb.core.guard name="1" org.eventb.core.label="grd4" org.eventb.core.predicate="nvisited = visited ∪ {n}"/>
+    </org.eventb.core.event>
+    <org.eventb.core.invariant name="evt6" org.eventb.core.label="inv3" org.eventb.core.predicate="∀p,q· p ∈ Node ∧ q ∈ Node ⇒ ds(p↦q) ≤ sent(p↦q)"/>
+    <org.eventb.core.invariant name="evt7" org.eventb.core.label="inv4" org.eventb.core.predicate="∀p,q· p ∈ Node ∧ q ∈ Node ⇒ dr(p↦q) ≤ rcvd(p↦q)"/>
+    <org.eventb.core.invariant name="evt9" org.eventb.core.label="inv5" org.eventb.core.predicate="visited ⊆ Node"/>
+    <org.eventb.core.variant name="evt:" org.eventb.core.expression="{ n ∣ n ∈ Node ∧ (n ∉ visited ∨ (∃q· q ∈ Node ∧ (ds(n↦q) ≠ sent(n↦q) ∨ dr(q↦n) ≠ rcvd(q↦n))))}" org.eventb.core.label="vrn1"/>
+</org.eventb.core.machineFile>

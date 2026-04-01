@@ -1,0 +1,56 @@
+{
+  "name": "TDAbstract",
+  "description": "",
+  "machines": [
+    {
+      "name": "TDAbstract",
+      "description": "",
+      "location": "TDAbstract.bum",
+      "lastUsedPreferenceName": "default",
+      "validationTasks": [
+        {
+          "taskType": "MODEL_CHECKING",
+          "searchStrategy": "MIXED_BF_DF",
+          "timeLimit": 20,
+          "options": [
+            "FIND_DEADLOCKS",
+            "FIND_INVARIANT_VIOLATIONS"
+          ],
+          "selected": true
+        },
+        {
+          "taskType": "LTL",
+          "description": "",
+          "stateLimit": 100000,
+          "code": "G({active = {}} & {pending = Node ** {0}} => F {termDetected = TRUE})",
+          "startState": "ALL_INITIAL_STATES",
+          "expectedResult": true,
+          "selected": true
+        },
+        {
+          "taskType": "CBC_INVARIANT_PRESERVATION_CHECKING",
+          "selected": true,
+          "operationName": null
+        },
+        {
+          "taskType": "CBC_FIND_REDUNDANT_INVARIANTS",
+          "selected": true
+        }
+      ],
+      "ltlPatterns": [],
+      "simulations": [],
+      "visBVisualisations": []
+    }
+  ],
+  "requirements": [],
+  "preferences": [],
+  "metadata": {
+    "fileType": "Project",
+    "formatVersion": 57,
+    "savedAt": "2026-03-28T07:39:41.024349Z",
+    "creator": "User",
+    "proB2KernelVersion": "4.15.1",
+    "proBCliVersion": null,
+    "modelName": null
+  }
+}

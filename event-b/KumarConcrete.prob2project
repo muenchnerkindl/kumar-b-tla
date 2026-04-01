@@ -1,0 +1,38 @@
+{
+  "name": "KumarConcrete",
+  "description": "",
+  "machines": [
+    {
+      "name": "KumarConcrete",
+      "description": "",
+      "location": "KumarConcrete.bum",
+      "lastUsedPreferenceName": "default",
+      "validationTasks": [
+        {
+          "taskType": "MODEL_CHECKING",
+          "searchStrategy": "MIXED_BF_DF",
+          "timeLimit": 30,
+          "options": [
+            "FIND_DEADLOCKS",
+            "FIND_INVARIANT_VIOLATIONS"
+          ],
+          "selected": true
+        }
+      ],
+      "ltlPatterns": [],
+      "simulations": [],
+      "visBVisualisations": []
+    }
+  ],
+  "requirements": [],
+  "preferences": [],
+  "metadata": {
+    "fileType": "Project",
+    "formatVersion": 57,
+    "savedAt": "2026-04-01T15:09:17.952448Z",
+    "creator": "User",
+    "proB2KernelVersion": "4.15.1",
+    "proBCliVersion": null,
+    "modelName": null
+  }
+}

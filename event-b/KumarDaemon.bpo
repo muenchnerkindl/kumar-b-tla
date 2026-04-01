@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="Node" org.eventb.core.type="ℙ(Node)"/>
+        <org.eventb.core.poPredicate name="Nodf" org.eventb.core.predicate="finite(Node)" org.eventb.core.source="/Kumar/Node.buc|org.eventb.core.contextFile#Node|org.eventb.core.axiom#("/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="visited" org.eventb.core.type="ℙ(Node)"/>
+        <org.eventb.core.poIdentifier name="termdetect" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="active" org.eventb.core.type="ℙ(Node)"/>
+        <org.eventb.core.poIdentifier name="dr" org.eventb.core.type="ℙ(Node×Node×ℤ)"/>
+        <org.eventb.core.poIdentifier name="ds" org.eventb.core.type="ℙ(Node×Node×ℤ)"/>
+        <org.eventb.core.poIdentifier name="rcvd" org.eventb.core.type="ℙ(Node×Node×ℤ)"/>
+        <org.eventb.core.poIdentifier name="sent" org.eventb.core.type="ℙ(Node×Node×ℤ)"/>
+        <org.eventb.core.poPredicate name="termdetecu" org.eventb.core.predicate="active⊆Node" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.invariant#*"/>
+        <org.eventb.core.poPredicate name="termdetecv" org.eventb.core.predicate="sent∈Node × Node → ℕ" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.invariant#,"/>
+        <org.eventb.core.poPredicate name="termdetecw" org.eventb.core.predicate="rcvd∈Node × Node → ℕ" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.invariant#."/>
+        <org.eventb.core.poPredicate name="termdetecx" org.eventb.core.predicate="termdetect∈BOOL" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.invariant#1"/>
+        <org.eventb.core.poPredicate name="termdetecy" org.eventb.core.predicate="∀p⦂Node,q⦂Node·p∈Node∧q∈Node⇒rcvd(p ↦ q)≤sent(p ↦ q)" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.invariant#5"/>
+        <org.eventb.core.poPredicate name="termdetecz" org.eventb.core.predicate="termdetect=TRUE⇒active=(∅ ⦂ ℙ(Node))∧sent=rcvd" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.invariant#6"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="inv3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#HYPNodm"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀p⦂Node,q⦂Node·p∈Node∧q∈Node⇒p ↦ q∈dom(ds)∧ds∈Node × Node ⇸ ℤ∧p ↦ q∈dom(sent)∧sent∈Node × Node ⇸ ℤ" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt6"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt6"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#HYPNodm"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="inv4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#HYPNodn"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀p⦂Node,q⦂Node·p∈Node∧q∈Node⇒p ↦ q∈dom(dr)∧dr∈Node × Node ⇸ ℤ∧p ↦ q∈dom(rcvd)∧rcvd∈Node × Node ⇸ ℤ" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt7"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt7"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#HYPNodn"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="vrn1/VWD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of variant" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀n⦂Node·n∈Node⇒n∉visited∨(∀q⦂Node·q∈Node⇒n ↦ q∈dom(ds)∧ds∈Node × Node ⇸ ℤ∧n ↦ q∈dom(sent)∧sent∈Node × Node ⇸ ℤ∧(ds(n ↦ q)≠sent(n ↦ q)∨(q ↦ n∈dom(dr)∧dr∈Node × Node ⇸ ℤ∧q ↦ n∈dom(rcvd)∧rcvd∈Node × Node ⇸ ℤ)))" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.variant#evt:"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.variant#evt:"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="vrn1/FIN" org.eventb.core.accurate="true" org.eventb.core.poDesc="Finiteness of variant" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="finite({n⦂Node·n∈Node∧(n∉visited∨(∃q⦂Node·q∈Node∧(ds(n ↦ q)≠sent(n ↦ q)∨dr(q ↦ n)≠rcvd(q ↦ n)))) ∣ n})" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.variant#evt:"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.variant#evt:"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTALLHYPtermdetecv"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Node × Node × {0}∈Node × Node → ℕ" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#*"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poSequent#INITIALISATION\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#HYPNodm|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTALLHYPtermdetecv"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Node × Node × {0}∈Node × Node → ℕ" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#,"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#,"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poSequent#INITIALISATION\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#HYPNodm|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTALLHYPtermdetecv"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀p⦂Node,q⦂Node·p∈Node∧q∈Node⇒(Node × Node × {0})(p ↦ q)≤(Node × Node × {0})(p ↦ q)" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt6"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt6"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poSequent#INITIALISATION\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#HYPNodn|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTALLHYPtermdetecv"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀p⦂Node,q⦂Node·p∈Node∧q∈Node⇒(Node × Node × {0})(p ↦ q)≤(Node × Node × {0})(p ↦ q)" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt7"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt7"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poSequent#INITIALISATION\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTtermdetecv" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="termdetect'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="sent'" org.eventb.core.type="ℙ(Node×Node×ℤ)"/>
+        <org.eventb.core.poIdentifier name="ds'" org.eventb.core.type="ℙ(Node×Node×ℤ)"/>
+        <org.eventb.core.poIdentifier name="rcvd'" org.eventb.core.type="ℙ(Node×Node×ℤ)"/>
+        <org.eventb.core.poIdentifier name="dr'" org.eventb.core.type="ℙ(Node×Node×ℤ)"/>
+        <org.eventb.core.poIdentifier name="active'" org.eventb.core.type="ℙ(Node)"/>
+        <org.eventb.core.poIdentifier name="visited'" org.eventb.core.type="ℙ(Node)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPtermdetecv" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTIDENTtermdetecv" org.eventb.core.poStamp="0"/>
+    <org.eventb.core.poPredicateSet name="EVTIDENTtermdetecw" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="n" org.eventb.core.type="Node"/>
+        <org.eventb.core.poIdentifier name="active'" org.eventb.core.type="ℙ(Node)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPtermdetecw" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTIDENTtermdetecw" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="n∈active" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.event#\/|org.eventb.core.guard#)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="send/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTALLHYPtermdetecx"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀p⦂Node,q⦂Node·p∈Node∧q∈Node⇒ds(p ↦ q)≤nsent(p ↦ q)" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt6"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.event#2"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt2"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt6"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poSequent#send\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#HYPNodn|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTtermdetecx" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="q" org.eventb.core.type="Node"/>
+        <org.eventb.core.poIdentifier name="sent'" org.eventb.core.type="ℙ(Node×Node×ℤ)"/>
+        <org.eventb.core.poIdentifier name="nsent" org.eventb.core.type="ℙ(Node×Node×ℤ)"/>
+        <org.eventb.core.poIdentifier name="p" org.eventb.core.type="Node"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPtermdetecx" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTIDENTtermdetecx" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="p∈active" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.event#2|org.eventb.core.guard#*"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="q∈Node" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.event#2|org.eventb.core.guard#+"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="nsent=sent{p ↦ q ↦ sent(p ↦ q)+1}" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.event#2|org.eventb.core.guard#,"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="recv/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTALLHYPtermdetecy"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀p⦂Node,q⦂Node·p∈Node∧q∈Node⇒dr(p ↦ q)≤nrcvd(p ↦ q)" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt7"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.event#3"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt3"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt7"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poSequent#recv\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTtermdetecy" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="q" org.eventb.core.type="Node"/>
+        <org.eventb.core.poIdentifier name="rcvd'" org.eventb.core.type="ℙ(Node×Node×ℤ)"/>
+        <org.eventb.core.poIdentifier name="nrcvd" org.eventb.core.type="ℙ(Node×Node×ℤ)"/>
+        <org.eventb.core.poIdentifier name="p" org.eventb.core.type="Node"/>
+        <org.eventb.core.poIdentifier name="active'" org.eventb.core.type="ℙ(Node)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPtermdetecy" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTIDENTtermdetecy" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="p∈Node∧q∈Node" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.event#3|org.eventb.core.guard#*"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="sent(p ↦ q)&gt;rcvd(p ↦ q)" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.event#3|org.eventb.core.guard#+"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="nrcvd=rcvd{p ↦ q ↦ rcvd(p ↦ q)+1}" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.event#3|org.eventb.core.guard#,"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTtermdetecz" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="termdetect'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPtermdetecz" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTIDENTtermdetecz" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="active=(∅ ⦂ ℙ(Node))" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.event#4|org.eventb.core.guard#'"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="sent=rcvd" org.eventb.core.source="/Kumar/KumarAbstract.bum|org.eventb.core.machineFile#KumarAbstract|org.eventb.core.event#4|org.eventb.core.guard#("/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="record/grd5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTHYPtermdetec{'"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="n∉visited∨(∀q⦂Node·q∈Node⇒n ↦ q∈dom(ds)∧ds∈Node × Node ⇸ ℤ∧n ↦ q∈dom(sent)∧sent∈Node × Node ⇸ ℤ∧(ds(n ↦ q)≠sent(n ↦ q)∨(q ↦ n∈dom(dr)∧dr∈Node × Node ⇸ ℤ∧q ↦ n∈dom(rcvd)∧rcvd∈Node × Node ⇸ ℤ)))" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt5|org.eventb.core.guard#2"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt5|org.eventb.core.guard#2"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTHYPtermdetec{'"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="record/grd2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTHYPtermdetec{("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀p⦂Node,q⦂Node·p=n∧q∈Node⇒p ↦ q∈dom(sent)∧sent∈Node × Node ⇸ ℤ" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt5|org.eventb.core.guard#+"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt5|org.eventb.core.guard#+"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTHYPtermdetec{("/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="record/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTHYPtermdetec{)"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀p⦂Node,q⦂Node·p∈Node∧q=n⇒p ↦ q∈dom(rcvd)∧rcvd∈Node × Node ⇸ ℤ" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt5|org.eventb.core.guard#,"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt5|org.eventb.core.guard#,"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTHYPtermdetec{)"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="record/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTALLHYPtermdetec{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="nds∈Node × Node → ℕ" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt5"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#*"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poSequent#record\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#HYPNodm|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="record/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTALLHYPtermdetec{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="ndr∈Node × Node → ℕ" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#,"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt5"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#,"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poSequent#record\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#HYPNodm|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="record/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTALLHYPtermdetec{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀p⦂Node,q⦂Node·p∈Node∧q∈Node⇒nds(p ↦ q)≤sent(p ↦ q)" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt6"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt5"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt6"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poSequent#record\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#HYPNodn|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="record/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTALLHYPtermdetec{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀p⦂Node,q⦂Node·p∈Node∧q∈Node⇒ndr(p ↦ q)≤rcvd(p ↦ q)" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt7"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt5"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt7"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poSequent#record\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="record/vrn1/VAR" org.eventb.core.accurate="true" org.eventb.core.poDesc="Variant of event" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTALLHYPtermdetec{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{n⦂Node·n∈Node∧(n∉nvisited∨(∃q⦂Node·q∈Node∧(nds(n ↦ q)≠sent(n ↦ q)∨ndr(q ↦ n)≠rcvd(q ↦ n)))) ∣ n}⊂{n⦂Node·n∈Node∧(n∉visited∨(∃q⦂Node·q∈Node∧(ds(n ↦ q)≠sent(n ↦ q)∨dr(q ↦ n)≠rcvd(q ↦ n)))) ∣ n}" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.variant#evt:"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt5"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.variant#evt:"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poSequent#record\/vrn1\/VAR|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTtermdetec{" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="n" org.eventb.core.type="Node"/>
+        <org.eventb.core.poIdentifier name="nds" org.eventb.core.type="ℙ(Node×Node×ℤ)"/>
+        <org.eventb.core.poIdentifier name="ds'" org.eventb.core.type="ℙ(Node×Node×ℤ)"/>
+        <org.eventb.core.poIdentifier name="ndr" org.eventb.core.type="ℙ(Node×Node×ℤ)"/>
+        <org.eventb.core.poIdentifier name="dr'" org.eventb.core.type="ℙ(Node×Node×ℤ)"/>
+        <org.eventb.core.poIdentifier name="nvisited" org.eventb.core.type="ℙ(Node)"/>
+        <org.eventb.core.poIdentifier name="visited'" org.eventb.core.type="ℙ(Node)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPtermdetec{'" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTIDENTtermdetec{" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="n∈Node ∖ active" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt5|org.eventb.core.guard#*"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPtermdetec{(" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTHYPtermdetec{'" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="n∉visited∨(∃q⦂Node·q∈Node∧(ds(n ↦ q)≠sent(n ↦ q)∨dr(q ↦ n)≠rcvd(q ↦ n)))" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt5|org.eventb.core.guard#2"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPtermdetec{)" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTHYPtermdetec{(" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="nds=ds(λp⦂Node ↦ q⦂Node·p=n∧q∈Node ∣ sent(p ↦ q))" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt5|org.eventb.core.guard#+"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPtermdetec{" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#EVTHYPtermdetec{)" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="ndr=dr(λp⦂Node ↦ q⦂Node·p∈Node∧q=n ∣ rcvd(p ↦ q))" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt5|org.eventb.core.guard#,"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="nvisited=visited∪{n}" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.event#evt5|org.eventb.core.guard#1"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYPNodm" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="ds∈Node × Node → ℕ" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#*"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="dr∈Node × Node → ℕ" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#,"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYPNodn" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#HYPNodm" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="∀p⦂Node,q⦂Node·p∈Node∧q∈Node⇒ds(p ↦ q)≤sent(p ↦ q)" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt6"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/Kumar/KumarDaemon.bpo|org.eventb.core.poFile#KumarDaemon|org.eventb.core.poPredicateSet#HYPNodn" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="∀p⦂Node,q⦂Node·p∈Node∧q∈Node⇒dr(p ↦ q)≤rcvd(p ↦ q)" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt7"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="visited⊆Node" org.eventb.core.source="/Kumar/KumarDaemon.bum|org.eventb.core.machineFile#KumarDaemon|org.eventb.core.invariant#evt9"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

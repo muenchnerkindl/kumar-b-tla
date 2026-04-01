@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="active :∈ ℙ(Node)" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="pending ≔ Node × {0}" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="termDetected ≔ FALSE" org.eventb.core.label="act3"/>
+    </org.eventb.core.event>
+    <org.eventb.core.seesContext name="(" org.eventb.core.target="Node"/>
+    <org.eventb.core.variable name=")" org.eventb.core.identifier="active"/>
+    <org.eventb.core.invariant name="*" org.eventb.core.label="inv1" org.eventb.core.predicate="active ⊆ Node"/>
+    <org.eventb.core.variable name="+" org.eventb.core.identifier="pending"/>
+    <org.eventb.core.invariant name="," org.eventb.core.label="inv2" org.eventb.core.predicate="pending ∈ Node → ℕ"/>
+    <org.eventb.core.variable name="-" org.eventb.core.identifier="termDetected"/>
+    <org.eventb.core.invariant name="." org.eventb.core.label="inv3" org.eventb.core.predicate="termDetected ∈ BOOL "/>
+    <org.eventb.core.invariant name="/" org.eventb.core.label="inv4" org.eventb.core.predicate="termDetected = TRUE ⇒ active = ∅ ∧ pending = Node × {0}"/>
+    <org.eventb.core.event name="0" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Terminate">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="n"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="n ∈ active"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="active ≔ active ∖ {n}" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Send">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="p"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="q"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="p ∈ active"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="q ∈ Node"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="pending ≔ pending  {q ↦ pending(q)+1}" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="2" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Receive">
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="q"/>
+        <org.eventb.core.guard name="-" org.eventb.core.label="grd3" org.eventb.core.predicate="q ∈ Node"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="pending(q) &gt; 0"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="active ≔ active ∪ {q}" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="pending ≔ pending  {q ↦ pending(q)−1}" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="3" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Detect">
+        <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="active = ∅"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="pending = Node × {0}"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="termDetected ≔ TRUE" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>
