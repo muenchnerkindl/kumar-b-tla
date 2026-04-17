@@ -24,6 +24,7 @@ TypeOK ==
 
 terminated == \A n \in Node : ~ active[n] /\ pending[n] = 0
 
+-----------------------------------------------------------------------------
 (***************************************************************************)
 (* Initial condition: the nodes can be active or inactive, no pending      *)
 (* messages. Termination may (but need not) be detected immediately if all *)
@@ -68,7 +69,7 @@ Spec == /\ Init /\ [][Next]_vars
            \* reasonable but not necessary for detecting termination
            \* /\ \A q \in Node : WF_vars(RcvMsg(q))
 
-
+-----------------------------------------------------------------------------
 (***************************************************************************)
 (* Restrict TLC model checking to a finite fragment of the state space.    *)
 (***************************************************************************)

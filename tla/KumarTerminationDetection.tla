@@ -73,6 +73,7 @@ Consistent(Q) ==
 
 terminationDetected == Consistent(Node) /\ visited = Node 
 
+-----------------------------------------------------------------------------
 (****************************************************************************)
 (* Initially some nodes are active, the daemon has not visited any node,    *)
 (* and all counters are initialized to zero.                                *)
